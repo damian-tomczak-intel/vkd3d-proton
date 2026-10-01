@@ -152,6 +152,7 @@ static const struct vkd3d_optional_extension_info optional_device_extensions[] =
     VK_EXTENSION_VERSION(NV_LOW_LATENCY_2, NV_low_latency2, 2),
     VK_EXTENSION(NV_RAW_ACCESS_CHAINS, NV_raw_access_chains),
     VK_EXTENSION(NV_COOPERATIVE_MATRIX_2, NV_cooperative_matrix2),
+    VK_EXTENSION(NV_COOPERATIVE_VECTOR, NV_cooperative_vector),
     /* VALVE extensions */
     VK_EXTENSION(VALVE_MUTABLE_DESCRIPTOR_TYPE, VALVE_mutable_descriptor_type),
     VK_EXTENSION(VALVE_SHADER_MIXED_FLOAT_DOT_PRODUCT, VALVE_shader_mixed_float_dot_product),
@@ -2484,6 +2485,13 @@ static void vkd3d_physical_device_info_init(struct vkd3d_physical_device_info *i
         info->cooperative_matrix2_features_nv.sType =
                 VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV;
         vk_prepend_struct(&info->features2, &info->cooperative_matrix2_features_nv);
+    }
+
+    if (vulkan_info->NV_cooperative_vector)
+    {
+        info->cooperative_vector_features_nv.sType =
+                VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV;
+        vk_prepend_struct(&info->features2, &info->cooperative_vector_features_nv);
     }
 
     if (vulkan_info->AMD_anti_lag)

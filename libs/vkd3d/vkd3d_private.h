@@ -209,6 +209,7 @@ struct vkd3d_vulkan_info
     bool NV_low_latency2;
     bool NV_raw_access_chains;
     bool NV_cooperative_matrix2;
+    bool NV_cooperative_vector;
     /* VALVE extensions */
     bool VALVE_mutable_descriptor_type;
     bool VALVE_shader_mixed_float_dot_product;
@@ -5104,6 +5105,7 @@ struct vkd3d_physical_device_info
     VkPhysicalDeviceOpacityMicromapFeaturesEXT opacity_micromap_features;
     VkPhysicalDeviceShaderFloat8FeaturesEXT shader_float8_features;
     VkPhysicalDeviceCooperativeMatrix2FeaturesNV cooperative_matrix2_features_nv;
+    VkPhysicalDeviceCooperativeVectorFeaturesNV cooperative_vector_features_nv;
     VkPhysicalDeviceAntiLagFeaturesAMD anti_lag_amd;
     VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR unified_image_layouts_features;
     VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE shader_mixed_float_dot_product_features;
